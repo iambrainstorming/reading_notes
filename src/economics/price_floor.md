@@ -58,7 +58,7 @@ As you might have guessed, this creates a problem. There is less quantity demand
 
 ## Implementing MSP in India
 
-In India, 6.7 million children are going without food, and the question is whether a price floor can still create a surplus. Surplus occurs not because there are not enough people who need the product, but because enough people fail to purchase it at a particular price. At a price floor, there will be far more people who fail to purchase it as the quantity supplied exceeds the quantity demanded, as shown in the diagram.
+[In India, 6.7 million children are going without food](https://www.indiatoday.in/health/story/india-has-67-million-zero-food-children-going-without-food-harvard-study-2513449-2024-03-11), and the question is whether a price floor can still create a surplus. Surplus occurs not because there are not enough people who need the product, but because enough people fail to purchase it at a particular price. At a price floor, there will be far more people who fail to purchase it as the quantity supplied exceeds the quantity demanded, as shown in the diagram.
 
 
 ## So price floor is a bad idea. In what way we can protect farmers?

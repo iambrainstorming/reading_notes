@@ -43,7 +43,7 @@ In November of 1972, Nixon won re-election in a landslide. So, wage and price co
 
 ## Price floor in agriculture
 
-Price floors are also used often in agriculture to try to protect farmers.
+[Price floors are also used often in agriculture to try to protect farmers](http://economics.fundamentalfinance.com/micro_price-floor.php).
 
 As you might have guessed, this creates a problem. There is less quantity demanded (consumed) than quantity supplied (produced). This is called a surplus. If the surplus is allowed to be in the market then the price would actually drop below the equilibrium. In order to prevent this the government must step in. The government has a few options:
 

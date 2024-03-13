@@ -6,7 +6,7 @@ A price floor is a minimum price allowed by law. That is, it is a price below wh
 ## What is surplus of labor with mininum wage? Unemployment
 The minimum wage is a price floor, so it's going to create a surplus. A surplus of labor, we call what? A surplus of labor is called unemployment.
 
-![Price Floor](economics/image/unemployment.png)
+![Price Floor](image/unemployment.png)
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/65kfAswiHLk?si=OHAGZA5EB5T6TzEk" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 

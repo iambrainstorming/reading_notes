@@ -9,3 +9,6 @@
 - [Pair antibiotic with probiotics](./biology/antibiotiocs-probiotics.md)
 - [Helicobacter Pylori](./biology/helicobacter-pylori.md)
 - [Fatty Liver](./biology/fatty-liver.md)
+
+# Parenting
+- [Baby Parenting](./parenting/baby_parenting.md)

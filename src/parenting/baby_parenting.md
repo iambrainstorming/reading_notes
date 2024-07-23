@@ -1,5 +1,9 @@
 # Baby Parenting
 
+Updates here:
+
+https://iambrainstorming.github.io/chapters/parenting/baby_parenting.html
+
 ## Amount and Schedule of Baby Formula Feeding
 
 From American Academy of Pediatrics

@@ -1,0 +1,295 @@
+<!DOCTYPE HTML>
+<html lang="en" class="light" dir="ltr">
+
+<head>
+    <!-- Book generated using mdBook -->
+    <meta charset="UTF-8">
+    <title>Consistency vs Procrastination</title>
+
+
+    <!-- Custom HTML head -->
+    
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#ffffff">
+
+    <link rel="icon" href="../favicon.svg">
+    <link rel="shortcut icon" href="../favicon.png">
+    <link rel="stylesheet" href="../css/variables.css">
+    <link rel="stylesheet" href="../css/general.css">
+    <link rel="stylesheet" href="../css/chrome.css">
+    <link rel="stylesheet" href="../css/print.css" media="print">
+
+    <!-- Fonts -->
+    <link rel="stylesheet" href="../FontAwesome/css/font-awesome.css">
+    <link rel="stylesheet" href="../fonts/fonts.css">
+
+    <!-- Highlight.js Stylesheets -->
+    <link rel="stylesheet" href="../highlight.css">
+    <link rel="stylesheet" href="../tomorrow-night.css">
+    <link rel="stylesheet" href="../ayu-highlight.css">
+
+    <!-- Custom theme stylesheets -->
+
+</head>
+
+<body class="sidebar-visible no-js">
+    <div id="body-container">
+        <!-- Provide site root to javascript -->
+        <script>
+            var path_to_root = "../";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch (e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('light')
+            html.classList.add(theme);
+            var body = document.querySelector('body');
+            body.classList.remove('no-js')
+            body.classList.add('js');
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            var body = document.querySelector('body');
+            var sidebar = null;
+            var sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch (e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+            }
+            sidebar_toggle.checked = sidebar === 'visible';
+            body.classList.remove('sidebar-visible');
+            body.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded affix "><li class="part-title">Economics</li><li class="chapter-item expanded "><a href="../economics/price_floor.html"><strong aria-hidden="true">1.</strong> Price Floor</a></li><li class="chapter-item expanded affix "><li class="part-title">Biology</li><li class="chapter-item expanded "><a href="../biology/anthelmintic_drug.html"><strong aria-hidden="true">2.</strong> Anthelmintic Drug</a></li><li class="chapter-item expanded "><a href="../pseudoscience/homeopathy_draft.html"><strong aria-hidden="true">3.</strong> Homeopathy Draft</a></li><li class="chapter-item expanded "><a href="../biology/antibiotiocs-probiotics.html"><strong aria-hidden="true">4.</strong> Pair antibiotic with probiotics</a></li><li class="chapter-item expanded "><a href="../biology/helicobacter-pylori.html"><strong aria-hidden="true">5.</strong> Helicobacter Pylori</a></li><li class="chapter-item expanded "><a href="../biology/fatty-liver.html"><strong aria-hidden="true">6.</strong> Fatty Liver</a></li><li class="chapter-item expanded affix "><li class="part-title">Parenting</li><li class="chapter-item expanded "><a href="../parenting/baby_parenting.html"><strong aria-hidden="true">7.</strong> Baby Parenting</a></li><li class="chapter-item expanded affix "><li class="part-title">Psychology</li><li class="chapter-item expanded "><a href="../psychology/consistency_in_learning.html" class="active"><strong aria-hidden="true">8.</strong> Consistency vs Procrastination</a></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <!-- Track and set sidebar scroll position -->
+        <script>
+            var sidebarScrollbox = document.querySelector('#sidebar .sidebar-scrollbox');
+            sidebarScrollbox.addEventListener('click', function (e) {
+                if (e.target.tagName === 'A') {
+                    sessionStorage.setItem('sidebar-scroll', sidebarScrollbox.scrollTop);
+                }
+            }, { passive: true });
+            var sidebarScrollTop = sessionStorage.getItem('sidebar-scroll');
+            sessionStorage.removeItem('sidebar-scroll');
+            if (sidebarScrollTop) {
+                // preserve sidebar scroll position when navigating via links within sidebar
+                sidebarScrollbox.scrollTop = sidebarScrollTop;
+            } else {
+                // scroll sidebar to current active section when navigating via "next/previous chapter" buttons
+                var activeSection = document.querySelector('#sidebar .active');
+                if (activeSection) {
+                    activeSection.scrollIntoView({ block: 'center' });
+                }
+            }
+        </script>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor"
+                            title="Toggle Table of Contents" aria-label="Toggle Table of Contents"
+                            aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme"
+                            aria-label="Change theme" aria-haspopup="true" aria-expanded="false"
+                            aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)"
+                            aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S"
+                            aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                
+                        <div id="google_translate_element"></div>
+                     
+                    </div>
+
+                    <h1 class="menu-title"></h1>
+
+                    <div class="right-buttons">
+                        <a href="../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..."
+                            aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function (link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h2 id="consistency-vs-procrastination"><a class="header" href="#consistency-vs-procrastination">Consistency vs Procrastination</a></h2>
+<p>Consistency in dedicating time each day to learning something new is essential for several reasons. Firstly, regular practice reinforces memory and aids in retaining information. When you engage with new material daily, the repetition helps to solidify your understanding, making it easier to recall and apply the knowledge in various contexts. This continuous engagement also builds momentum, making the learning process more fluid and less overwhelming. By establishing a daily routine, you create a habit that integrates learning seamlessly into your life, ensuring steady progress over time.</p>
+<p>Furthermore, daily learning fosters a sense of discipline and commitment. It encourages you to set aside distractions and focus on your growth and development. This consistent effort can lead to significant improvements in skills and knowledge, which are often necessary for personal and professional advancement. Moreover, regular learning keeps your mind active and engaged, promoting cognitive health and potentially staving off mental decline as you age. It helps you stay curious, adaptable, and open to new ideas, which are crucial traits in an ever-changing world.</p>
+<p>On the other hand, procrastination can have several negative consequences. When you delay learning or putting effort into acquiring new skills, you miss out on opportunities for growth and development. Procrastination often leads to a rush to meet deadlines or cram information at the last minute, resulting in a superficial understanding rather than deep, meaningful learning. This haphazard approach can cause stress and anxiety, reducing the overall enjoyment and effectiveness of the learning process.</p>
+<p>Additionally, procrastination can create a cycle of guilt and decreased motivation. The more you put off tasks, the more daunting they seem, leading to a buildup of unfinished work and unachieved goals. This can erode your self-confidence and create a negative self-perception. Over time, habitual procrastination can hinder personal and professional achievements, limiting your potential and impacting your overall well-being. By recognizing the importance of consistency and actively working to overcome procrastination, you can cultivate a more productive and fulfilling approach to learning and personal growth.</p>
+<h2 id="slow-and-steady-wins-the-race"><a class="header" href="#slow-and-steady-wins-the-race">Slow and steady wins the race</a></h2>
+<p>Complex subjects often require a deep understanding and the ability to integrate various concepts, which cannot be achieved through rushed or sporadic efforts. By approaching learning in a slow and steady manner, you give yourself the time needed to thoroughly grasp each component of the material.</p>
+<p>Learning complicated material gradually allows for the accumulation of knowledge in manageable increments. This method reduces the cognitive load and prevents the feeling of being overwhelmed, which can often occur when trying to absorb too much information at once. Breaking down the material into smaller, more digestible parts and consistently working through them each day enables a more profound comprehension and retention of the subject matter. This approach mirrors the fable of the tortoise and the hare, where the consistent, patient efforts of the tortoise ultimately lead to success.</p>
+<p>Moreover, slow and steady learning helps in building a strong foundation. Complicated subjects typically build upon basic principles. By taking the time to master these foundational elements thoroughly, you create a solid base upon which more advanced concepts can be understood more easily. This methodical progression ensures that gaps in knowledge are identified and addressed promptly, preventing future misunderstandings or the need for relearning.</p>
+<p>In contrast, attempting to rush through complicated material can lead to superficial learning. This approach often results in a fragile understanding that can easily collapse under the weight of more advanced topics. Procrastination and cramming might yield short-term results, such as passing an exam, but they do not foster long-term retention or the ability to apply knowledge effectively. Therefore, adopting a &quot;slow and steady&quot; approach is not only more sustainable but also more effective in achieving true mastery of complicated subjects.</p>
+<h2 id="consistency-in-exercise"><a class="header" href="#consistency-in-exercise">Consistency in exercise</a></h2>
+<p>Consistency in exercise, much like in learning, plays a crucial role in achieving long-term benefits and forming healthy habits. Regular physical activity, performed consistently over time, leads to significant improvements in physical health, such as increased strength, endurance, and flexibility. Establishing a daily exercise routine fosters discipline and creates a positive feedback loop; the more consistently you exercise, the more likely you are to continue, reinforcing the habit. This regularity is key to reaping the full benefits of exercise, which go beyond just physical health and extend to mental well-being and cognitive functioning.</p>
+<p>Procrastination in exercise, on the other hand, can have numerous negative consequences. Delaying physical activity often leads to a sedentary lifestyle, which is associated with various health issues, including obesity, cardiovascular diseases, and weakened muscles. Procrastination can also result in inconsistent workout patterns, making it harder to see progress and stay motivated. The lack of a regular exercise routine can lead to feelings of guilt and decreased self-esteem, further discouraging you from engaging in physical activity.</p>
+<p>The benefits of consistent exercise on mental well-being are well-documented. Regular physical activity releases endorphins, the body's natural mood elevators, which can reduce feelings of stress, anxiety, and depression. Exercise also promotes better sleep, which is essential for overall mental health. Engaging in physical activity can enhance cognitive functions such as memory, attention, and problem-solving skills. This is because exercise increases blood flow to the brain, promoting the growth of new neurons and improving brain plasticity, which is vital for learning and adapting to new information.</p>
+<p>Moreover, exercise has been shown to improve focus and concentration, which are crucial for effective learning. Regular physical activity can boost your energy levels and reduce fatigue, making it easier to stay engaged and motivated when studying or learning new material. The discipline and routine developed through consistent exercise can also translate to other areas of life, including academics and professional pursuits. This disciplined approach helps to build resilience and the ability to tackle complex tasks with a clear and focused mind.</p>
+<h2 id="exercise"><a class="header" href="#exercise">Exercise</a></h2>
+<h4 id="reduces-stress-and-anxiety"><a class="header" href="#reduces-stress-and-anxiety">Reduces Stress and Anxiety</a></h4>
+<p>Exercise helps calm the mind and body, reducing feelings of stress and anxiety by slowing down your heart rate and promoting relaxation.</p>
+<h4 id="improves-oxygenation"><a class="header" href="#improves-oxygenation">Improves Oxygenation</a></h4>
+<p>Exercise increases oxygen levels in the body, which can improve cognitive function, boost energy, and support overall health.</p>
+<h4 id="lowers-blood-pressure"><a class="header" href="#lowers-blood-pressure">Lowers Blood Pressure</a></h4>
+<p>Regular exercises have been shown to lower blood pressure and reduce the risk of heart disease.</p>
+<h4 id="enhances-sleep"><a class="header" href="#enhances-sleep">Enhances Sleep</a></h4>
+<p>Exercise can help improve sleep quality by relaxing the body and mind, making it easier to fall asleep and stay asleep.</p>
+<h4 id="increases-focus-and-concentration"><a class="header" href="#increases-focus-and-concentration">Increases Focus and Concentration</a></h4>
+<p>Exercises can improve attention and focus by reducing mind-wandering and increasing mental clarity.</p>
+<h4 id="boosts-immune-system"><a class="header" href="#boosts-immune-system">Boosts Immune System</a></h4>
+<p>Habitual exercise improves <a href="https://www.sciencedirect.com/science/article/pii/S2095254618301005">immune regulation</a>, delaying the onset of age-related dysfunction.</p>
+<h4 id="reduces-migraine"><a class="header" href="#reduces-migraine">Reduces Migraine</a></h4>
+<p>Strength training exercise regimens demonstrated the highest efficacy in <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC9563744/">reducing migraine burden</a>, followed by high-intensity aerobic exercise.</p>
+<h4 id="improves-digestion"><a class="header" href="#improves-digestion">Improves Digestion</a></h4>
+<p>Deep breathing can help stimulate digestion, reduce symptoms of <a href="https://journals.lww.com/ajg/abstract/2011/05000/physical_activity_improves_symptoms_in_irritable.19.aspx">irritable bowel syndrome (IBS)</a>, and <a href="https://gut.bmj.com/content/63/12/1913">promote a healthy gut microbiome</a>.</p>
+<h4 id="increases-self-awareness"><a class="header" href="#increases-self-awareness">Increases Self-Awareness</a></h4>
+<p>Exercises can help increase self-awareness, allowing you to better understand your thoughts, emotions, and behaviors.</p>
+<h4 id="supports-emotional-well-being"><a class="header" href="#supports-emotional-well-being">Supports Emotional Well-being</a></h4>
+<p>Exercises can help reduce symptoms of depression and anxiety, promoting emotional balance and well-being.</p>
+<h4 id="improves-athletic-performance"><a class="header" href="#improves-athletic-performance">Improves Athletic Performance</a></h4>
+<p>Exercises can improve endurance, reduce fatigue, and enhance overall athletic performance.</p>
+<h4 id="reduces-inflammation"><a class="header" href="#reduces-inflammation">Reduces Inflammation</a></h4>
+<p>Exercises has anti-inflammatory effects, which can help reduce inflammation and promote overall health.</p>
+<h4 id="supports-weight-loss"><a class="header" href="#supports-weight-loss">Supports Weight Loss</a></h4>
+<p>Exercises can help reduce stress-related eating and increase feelings of fullness, supporting weight loss efforts.</p>
+<h4 id="improves-respiratory-function"><a class="header" href="#improves-respiratory-function">Improves Respiratory Function</a></h4>
+<p>Exercises can improve lung function, increase oxygen capacity, and reduce symptoms of respiratory conditions like asthma.</p>
+<h4 id="increases-mindfulness"><a class="header" href="#increases-mindfulness">Increases Mindfulness</a></h4>
+<p>Exercises promote mindfulness, encouraging you to focus on the present moment and let go of worries about the past or future.</p>
+<p>Overall, incorporating exercises into your daily routine can have a profound impact on both physical and mental health, leading to a greater sense of well-being and overall quality of life.</p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                        <a rel="prev" href="../parenting/baby_parenting.html" class="mobile-nav-chapters previous"
+                            title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                            <i class="fa fa-angle-left"></i>
+                        </a>
+
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                <a rel="prev" href="../parenting/baby_parenting.html" class="nav-chapters previous" title="Previous chapter"
+                    aria-label="Previous chapter" aria-keyshortcuts="Left">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="../elasticlunr.min.js"></script>
+        <script src="../mark.min.js"></script>
+        <script src="../searcher.js"></script>
+
+        <script src="../clipboard.min.js"></script>
+        <script src="../highlight.js"></script>
+        <script src="../book.js"></script>
+
+        <!-- Custom JS scripts -->
+
+
+
+       
+
+        <script type="text/javascript">
+            function googleTranslateElementInit() {
+                new google.translate.TranslateElement({ pageLanguage: 'en' }, 'google_translate_element');
+            }
+        </script>
+
+        <script type="text/javascript"
+            src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+
+
+    </div>
+     
+</body>
+
+</html>

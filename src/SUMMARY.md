@@ -12,3 +12,6 @@
 
 # Parenting
 - [Baby Parenting](./parenting/baby_parenting.md)
+
+# Psychology
+- [Consistency vs Procrastination](./psychology/consistency_in_learning.md)

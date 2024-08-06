@@ -15,3 +15,6 @@
 
 # Psychology
 - [Consistency vs Procrastination](./psychology/consistency_in_learning.md)
+
+# Linux
+- [Linux commands](./linux/linux_cheat_sheet.md)
